@@ -6,16 +6,25 @@ function get(selector){
 
 
 //MouseOver
-let home = get('nav a')
+// let home = get('nav a')
 
-home.addEventListener('mouseover', function(event){
-    event.target.style.color = 'purple'
-    setTimeout(function(){
-        event.target.style.color = ''
-    }, 500)
-}, false)
+// home.addEventListener('mouseover', function(event){
+//     event.target.style.color = 'purple'
+//     setTimeout(function(){
+//         event.target.style.color = ''
+//     }, 500)
+// }, false)
 
+let home = document.querySelectorAll('nav a')
 
+home.forEach(item =>{
+    item.addEventListener('mouseover', function(event){
+        event.target.style.color = 'purple'
+        setTimeout(function(){
+            event.target.style.color = ''
+        }, 500)
+    }, false)
+})
 //Keydown
 let nav = get('.main-navigation')
 
@@ -28,7 +37,6 @@ document.addEventListener('keydown', onEscape)
 
 //wheel
 const growButton = get('.btn')
-//let growButton = getAll('.btn')
 //const buttonArr = Array.from(growButton)
 function grow(event){
     growButton.style.fontSize = '3rem'
